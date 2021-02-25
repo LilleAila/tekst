@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-user-select: none; /* Safari */        
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+  outline: none;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgba(25, 26, 27, 1);
+  color: rgba(211, 207, 201, 1);
+}
+
+/* canvas {
+  width: 100vmin;
+  height: 100vmin;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+  left: 50vw;
+} */
+
+.app {
+  width: 100vmin;
+  height: 100vmin;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+  left: 50vw;
+  padding: 1vmin;
+  background-color: rgba(0, 0, 0 ,0);
+  /* color: black; */
+  position: relative;
+}
+
+#svarknapp {
+  width: 16vmin;
+  height: 9vmin;
+  font-size: 4vmin;
+  position: absolute;
+  bottom: 1vmin;
+  right: 1vmin;
+}
+
+.appdiv {
+  position: absolute;
+  top: 10vmin;
+  left: 10vmin;
+  width: 80vmin;
+  height: 80vmin;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  place-items: center;
+}
+
+.text, .svar {
+  width: 100%;
+  text-align: center;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.oppgaveTxt {
+  width: 100%;
+  height: 100%;
+  font-size: 5vmin;
+}
+
+.oppgaveSvar {
+  width: 100%;
+  height: 100%;
+  font-size: 5vmin;
+}
+
+.svarboks {
+  height: 5vmin;
+  font-size: 5vmin;
+  color: black;
+}
+
+.w1l {
+  width: 5vmin;
+}
+
+.w2l {
+  width: 10vmin;
+}
+
+.w3l {
+  width: 15vmin;
+}
+
+.w4l {
+  width: 20vmin;
+}
+
+.w5l {
+  width: 25vmin;
+}
+
+.w6l {
+  width: 30vmin;
+}
