@@ -96,7 +96,7 @@ var tekstoppgaver = {
 
             return {
                 text: `${person.navn} har ${pengerStart}kr.<br/>${cfl(person.pronomen)} kjøper ${ting1} for ${penger1}kr og ${ting2} for ${penger2}kr.<br/>Hvor mange kroner har ${person.pronomen} igjen?`,
-                svar: `${cfl(person.pronomen)} har ${svarboks}kr igjen.`,
+                svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
                 riktig: svar
             }
         },
@@ -121,7 +121,7 @@ var tekstoppgaver = {
 
             return {
                 text: `${person.navn} har ${pengerStart}kr.<br/>${cfl(person.pronomen)} får ${penger1}kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
-                svar: `${cfl(person.pronomen)} har ${svarboks}kr igjen.`,
+                svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
                 riktig: svar
             }
         },
@@ -145,7 +145,7 @@ var tekstoppgaver = {
 
             return {
                 text: `${person.navn} har bursdag.<br/>${cfl(person.pronomen)} får ${penger1}kr i familiebesøket og ${penger2} i  klassebesøket.<br/>Hvor mange penger får ${person.pronomen}?`,
-                svar: `${cfl(person.pronomen)} får ${svarboks}kr til bursdagen.`,
+                svar: `${cfl(person.pronomen)} får ${svarboks} kr til bursdagen.`,
                 riktig: svar
             }
         },
@@ -170,7 +170,7 @@ var tekstoppgaver = {
 
             return {
                 text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1}kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
-                svar: `${cfl(person.pronomen)} gir ${svarboks}kr.`,
+                svar: `${cfl(person.pronomen)} gir ${svarboks} kr.`,
                 riktig: svar
             }
         },
