@@ -102,10 +102,12 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                console.log("Riktig!");
-                velgOppgave();
+                showSnackbar();
+                setTimeout(function () {
+                    velgOppgave();
+                }, 1500);
             } else {
-                console.log("Feil")
+                shake($("#svarknapp"), 2);
             }
         }
     }],
@@ -127,10 +129,12 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                console.log("Riktig!");
-                velgOppgave();
+                showSnackbar();
+                setTimeout(function () {
+                    velgOppgave();
+                }, 1500);
             } else {
-                console.log("Feil")
+                shake($("#svarknapp"), 2);
             }
         }
     }, {
@@ -144,17 +148,19 @@ var tekstoppgaver = {
             svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" />';
 
             return {
-                text: `${person.navn} har bursdag.<br/>${cfl(person.pronomen)} får ${penger1}kr i familiebesøket og ${penger2} i  klassebesøket.<br/>Hvor mange penger får ${person.pronomen}?`,
+                text: `${person.navn} har bursdag.<br/>${cfl(person.pronomen)} får ${penger1}kr i familiebesøket og ${penger2}kr i  klassebesøket.<br/>Hvor mange penger får ${person.pronomen}?`,
                 svar: `${cfl(person.pronomen)} får ${svarboks} kr til bursdagen.`,
                 riktig: svar
             }
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                console.log("Riktig!");
-                velgOppgave();
+                showSnackbar();
+                setTimeout(function () {
+                    velgOppgave();
+                }, 1500);
             } else {
-                console.log("Feil")
+                shake($("#svarknapp"), 2);
             }
         }
     }],
@@ -176,10 +182,12 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                console.log("Riktig");
-                velgOppgave();
+                showSnackbar();
+                setTimeout(function () {
+                    velgOppgave();
+                }, 1500);
             } else {
-                console.log("Feil");
+                shake($("#svarknapp"), 2);
             }
         }
     }],
@@ -195,11 +203,6 @@ var tekstoppgaver = {
     // overflate: [],
     // omkrets: []
 }
-
-typerOppgave = Object.keys(tekstoppgaver);
-typeOppgave = typerOppgave[Math.floor(Math.random() * typerOppgave.length)];
-
-// console.log(typerOppgave, typeOppgave);
 
 var oppgave, oppgaveSvar;
 
@@ -240,3 +243,23 @@ velgOppgave();
 $("#svarknapp").click(function () {
     oppgaveSvar();
 });
+
+var timeout;
+
+function shake(el, times = 1) {
+    clearTimeout(timeout);
+    el.addClass("shake");
+    timeout = setTimeout(function () {
+        el.removeClass("shake");
+    }, times * 500);
+}
+
+var showSnackbar;
+
+function showSnackbar() {
+    clearTimeout(showSnackbar);
+    $("#snackbar").addClass("show");
+    timeout = setTimeout(function () {
+        $("#snackbar").removeClass("show");
+    }, 1500);
+}
