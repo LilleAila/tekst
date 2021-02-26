@@ -102,12 +102,9 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                showSnackbar();
-                setTimeout(function () {
-                    velgOppgave();
-                }, 1500);
+                feil()
             } else {
-                shake($("#svarknapp"), 2);
+                feil();
             }
         }
     }],
@@ -129,12 +126,9 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                showSnackbar();
-                setTimeout(function () {
-                    velgOppgave();
-                }, 1500);
+                riktig();
             } else {
-                shake($("#svarknapp"), 2);
+                feil();
             }
         }
     }, {
@@ -155,12 +149,9 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                showSnackbar();
-                setTimeout(function () {
-                    velgOppgave();
-                }, 1500);
+                riktig();
             } else {
-                shake($("#svarknapp"), 2);
+                feil();
             }
         }
     }],
@@ -182,12 +173,9 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                showSnackbar();
-                setTimeout(function () {
-                    velgOppgave();
-                }, 1500);
+                riktig();
             } else {
-                shake($("#svarknapp"), 2);
+                feil()
             }
         }
     }],
@@ -261,5 +249,23 @@ function showSnackbar() {
     $("#snackbar").addClass("show");
     timeout = setTimeout(function () {
         $("#snackbar").removeClass("show");
+    }, 1500);
+}
+
+function feil() {
+    $("#snackbar").text("Feil");
+    $("#snackbar").removeClass("riktig");
+    $("#snackbar").addClass("feil");
+    shake($("#svarknapp"), 2);
+    showSnackbar();
+}
+
+function riktig() {
+    $("#snackbar").text("Riktig");
+    $("#snackbar").removeClass("feil");
+    $("#snackbar").addClass("riktig");
+    showSnackbar();
+    setTimeout(function () {
+        velgOppgave();
     }, 1500);
 }

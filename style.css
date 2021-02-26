@@ -295,7 +295,8 @@ body {
 #snackbar {
   visibility: hidden;
   min-width: 10vmin;
-  background-color: rgba(255, 127, 17, 1);
+  /* background-color: rgba(255, 127, 17, 1); */
+  background-color: unset;
   color: rgba(255, 255, 255, 1);
   text-align: center;
   border-radius: 5vmin;
@@ -308,6 +309,14 @@ body {
   left: 50vmin;
 
   font-size: 5vmin;
+}
+
+.feil {
+  background-color: rgba(202, 60, 37, 1) !important;
+}
+
+.riktig {
+  background-color: rgba(125, 131, 255, 1) !important;
 }
 
 #snackbar.show {
