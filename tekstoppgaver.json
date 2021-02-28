@@ -1,0 +1,142 @@
+{
+    "_comment": {
+        "/!N!/": "Ny linje",
+        "/!S!/": "Svarboks",
+        "/!Pn!/": "Person navn",
+        "/!Pp!/": "Person pronomen",
+        "/!Pps!/": "Person pronomen stor bokstav",
+        "/!m2!/": "kvadratmeter / m². Brukes: 30m/!m2!/ = 30m²",
+        "/!m3!/": "kubikkmeter / m³. Brukes: 30m/!m3!/ = 30m³"
+    },
+    "personer": [
+        {
+            "navn": "Per",
+            "pronomen": "han"
+        },
+        {
+            "navn": "Bob",
+            "pronomen": "han"
+        },
+        {
+            "navn": "Martin",
+            "pronomen": "han"
+        }
+    ],
+    "oppgaver": {
+        "minus": [
+            {
+                "img": "none",
+                "text": "/!Pn!/ har 20kr./!N!//!Pps!/ kjøper sjokolade for 13kr./!N!/Hvor mange penger har /!Pp!/ igjen?",
+                "svar": "/!Pps!/ har /!S!/kr igjen.",
+                "riktig": 7
+            }
+        ],
+        "pluss": [
+            {
+                "img": "none",
+                "text": "/!Pn!/ har 15kr./!N!//!Pps!/ får 7kr til bursdagen./!N!/Hvor mange penger har /!Pp!/?",
+                "svar": "/!Pn!/ har /!S!/kr.",
+                "riktig": 22
+            }
+        ],
+        "deling": [
+            {
+                "img": "none",
+                "text": "Fem personer skal dele 35kr./!N!/Hvor mange penger får hver person?",
+                "svar": "De får /!S!/kr hver.",
+                "riktig": 7
+            }
+        ],
+        "ganging": [
+            {
+                "img": "none",
+                "text": "/!Pn!/ tjener penger med å lage frokost hver dag./!N!//!Pps!/ tjener 5kr hver gang han lager frokost./!N!/Hvor mange penger tjener /!Pp!/ på en uke?",
+                "svar": "/!Pn!/ tjener /!S!/kr på en uke.",
+                "riktig": 35
+            }
+        ],
+        "klokke": [
+            {
+                "img": "none",
+                "text": "Flyet går klokken 18:15 fra Bergen til Oslo./!N!/Det tar 30 minutter./!N!/Hva er klokken når flyet kommer til Oslo?",
+                "svar": "Klokken er /!S!/ når flyet kommer til Oslo",
+                "riktig": {
+                    "timer": 18,
+                    "minutter": 45
+                }
+            }
+        ],
+        "fart": [
+            {
+                "img": "none",
+                "text": "/!Pn!/ kjører 50km på 50min./!N!/Hvor fort kjørte /!Pp!/",
+                "svar": "/!Pps!/ kjørte /!S!/km/t.",
+                "riktig": 60
+            }
+        ],
+        "lengde": [
+            {
+                "img": "none",
+                "text": "/!Pn!/ løper 6km/t i 30min./!N!/Hvor langt løper /!Pp!/?",
+                "svar": "/!Pps!/ løper /!S!/km.",
+                "riktig": 3
+            }
+        ],
+        "tid": [
+            {
+                "img": "none",
+                "text": "/!Pn!/ kjører 60km/t i 50km./!N!/Hvor lenge kjører /!Pn!/?",
+                "svar": "/!Pps!/ kjører i /!S!/min.",
+                "riktig": 50
+            }
+        ],
+        "omkrets": [
+            {
+                "img": "none",
+                "text": "Hva er omkretsen av et kvadrat det alle sidene er 5cm lange?",
+                "svar": "Omkretsen er /!S!/cm.",
+                "riktig": 20
+            }
+        ],
+        "areal": [
+            {
+                "img": "none",
+                "text": "/!Pn!/ skal lage en kunstgressbane./!N!/Banen skal være 45m bred og 90m lang./!N!/Hvor mange m/!m2!/ med kunstgress trenger /!Pp!/?",
+                "svar": "/!Pp!/ trenger /!S!/m/!m2!/ med kunstgress.",
+                "riktig": 4050
+            }
+        ],
+        "finn den ukjente pluss": [
+            {
+                "img": "none",
+                "text": "Finn den ukjente.",
+                "svar": "6 + /!S!/ = 10",
+                "riktig": 4
+            }
+        ],
+        "finn den ukjente minus": [
+            {
+                "img": "none",
+                "text": "Finn den ukjente.",
+                "svar": "10 - /!S!/ = 6",
+                "riktig": 4
+            }
+        ],
+        "finn den ukjente deling": [
+            {
+                "img": "none",
+                "text": "Finn den ukjente",
+                "svar": "6 / /!S!/ = 3",
+                "riktig": 2
+            }
+        ],
+        "finn den ukjente ganging": [
+            {
+                "img": "none",
+                "text": "Finn den ukjente",
+                "svar": "3 × /!S!/ = 6",
+                "riktig": 2
+            }
+        ]
+    }
+}

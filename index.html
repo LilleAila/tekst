@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta charset="UTF-8">
+    <title>Tekstoppgaver</title>
+    <link rel="stylesheet" href="./css/metro-4.4.3.min.css">
+    <link rel="stylesheet" href="./css/animate.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.js"></script>
+    <link rel="icon" type="image/png" href="./icon.png">
+    <link rel="apple-touch-icon" type="image/png" href="./icon.png">
+</head>
+
+<body>
+    <!-- <canvas></canvas> -->
+    <div class="app">
+        <form onsubmit="return false;" class="appform">
+            <div class="appdiv">
+                <div class="text">aaaaa</div>
+                <div class="svar">bbbbb</div>
+            </div>
+            <div class="svarknapp">
+                <input type="submit" value="Svar" id="svarknapp">
+            </div>
+        </form>
+        <div id="snackbar">Riktig</div>
+
+        <!-- <div class="openBtn">
+            <span class="mif-arrow-drop-down"></span>
+        </div> -->
+
+        <div class="openDiv">
+            <div class="openSelectDiv">
+                <select class="openSelect" data-role="select" multiple data-filter-placeholder="Søk...">
+                    <optgroup label="Lett">
+                        <option value="lett_pluss" id="lett_pluss" class="option">Pluss</option>
+                        <option value="lett_minus" id="lett_minus" class="option">Minus</option>
+                        <option value="lett_ganging" id="lett_ganging" class="option">Ganging</option>
+                    </optgroup>
+                    <optgroup label="Vanskelig">
+                        <option value="vanskelig_pluss" id="vanskelig_pluss" class="option">Pluss</option>
+                        <option value="vanskelig_minus" id="vanskelig_minus" class="option">Minus</option>
+                        <option value="vanskelig_ganging" id="vanskelig_ganging" class="option">Ganging</option>
+                    </optgroup>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script src="./js/metro-4.4.3.min.js"></script>
+    <script src="./js/tekstoppgaver.js"></script>
+</body>
+
+</html>
