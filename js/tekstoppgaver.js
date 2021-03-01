@@ -91,7 +91,7 @@ var tekstoppgaver = {
             ting1 = randomItem();
             ting2 = randomItem();
 
-            svar = pengerStart - penger1 - penger2;
+            svar = pengerStart - (penger1 + penger2);
             svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
             return {
@@ -102,7 +102,7 @@ var tekstoppgaver = {
         },
         svarFunc: function () {
             if ($("#svarboks1").val() == oppgave.riktig) {
-                feil()
+                riktig();
             } else {
                 feil();
             }
