@@ -369,7 +369,7 @@ body {
   }
 }
 
-/* .openBtn {
+.openBtn {
   width: 10vmin;
   height: 10vmin;
 
@@ -388,20 +388,130 @@ body {
   border-radius: 50%;
 
   cursor: pointer;
+
+  transition: transform 0.5s ease, background-color 0.5s ease !important;
+
+  z-index: 2;
+}
+
+.openBtn:hover {
+  background-color: #41a2df;
+}
+
+.openBtn:active {
+  background-color: #1450c7;
 }
 
 .openBtn span {
-  font-size: 10vmin !important;
+  /* font-size: 10vmin !important; */
 
-  color: #1a1a1b !important;
+  background-color: #1a1a1b !important;
 
-  transition: transform 0.5s ease !important;
+  clip-path: polygon(50% 70%, 20% 40%, 80% 40%) !important;
+
+  width: 100%;
+  height: 100%;
 }
 
 .rot180 {
   transform: rotate(180deg) !important;
-} */
+}
 
-.d-none {
+.openDiv {
+  width: 100vmin;
+  height: 100vmin;
+  background-color: rgba(38, 70, 83, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  border-radius: 5vmin;
+  padding: 3vmin;
+}
+
+.openDiv.showOpenDiv {
+  display: block !important;
+}
+
+.openDiv:not(.showOpenDiv) {
   display: none !important;
+}
+
+.container {
+  max-width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 3vmin;
+}
+
+ul.ks-cboxtags {
+  list-style: none;
+  padding: 2vmin;
+}
+ul.ks-cboxtags li {
+  display: inline;
+  margin: 0.3vmin;
+}
+ul.ks-cboxtags li label {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 0.3vmin solid rgba(139, 139, 139, 0.3);
+  color: #adadad;
+  border-radius: 25px;
+  white-space: nowrap;
+  margin: 0.3vmin 0vmin;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li label {
+  padding: 0.4vmin 0.5vmin;
+  cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 3vmin;
+  padding: 0.1vmin 0.4vmin 0.1vmin 0.1vmin;
+  content: "+";
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+  content: "✓";
+  transform: rotate(-360deg);
+  transition: transform 0.3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+  border: 0.1vmin solid #1bdbf8;
+  background-color: #12bbd4;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: o.1vmin solid #e9a1ff;
+}
+
+h1 {
+  font-size: 5vmin !important;
+  font-weight: normal;
 }
