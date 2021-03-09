@@ -53,6 +53,10 @@ var typeOppgave, typerOppgave;
 var person = personer[0],
     pengerStart, penger1, penger2, ting1, ting2, svar, personer1;
 
+var vanskelighetsgrader = [];
+
+var oppgObj = {};
+
 function random(from, to) {
     let from1 = to - from;
     return Math.floor(Math.random() * from1) + from;
@@ -79,123 +83,231 @@ function cfl(str) {
 }
 
 var tekstoppgaver = {
-    minus: [{
-        func: function () {
-            person = randomPerson();
+    lettere: {
+        pluss: [{
+            func: function () {
+                person = randomPerson();
 
-            pengerStart = random(30, 80);
-            penger1 = random(1, pengerStart / 2);
-            penger2 = random(1, pengerStart - penger1);
-            pengerStart += 2;
+                pengerStart = random(1, 6) * 10;
+                penger1 = random(1, 9);
 
-            ting1 = randomItem();
-            ting2 = randomItem();
+                svar = pengerStart + penger1;
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
-            svar = pengerStart - (penger1 + penger2);
-            svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
-
-            return {
-                text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} kjøper ${ting1} for ${penger1} kr og ${ting2} for ${penger2} kr.<br/>Hvor mange kroner har ${person.pronomen} igjen?`,
-                svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
-                riktig: svar
+                return {
+                    text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} får ${penger1} kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
+                    svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil();
+                }
             }
-        },
-        svarFunc: function () {
-            if ($("#svarboks1").val() == oppgave.riktig) {
-                riktig();
-            } else {
-                feil();
+        }]
+    },
+    lett: {
+        minus: [{
+            func: function () {
+                person = randomPerson();
+
+                pengerStart = random(30, 80);
+                penger1 = random(1, pengerStart - 5);
+
+                ting1 = randomItem();
+
+                svar = pengerStart - penger1;
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+
+                return {
+                    text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} kjøper ${ting1} for ${penger1} kr.<br/>Hvor mange kroner har ${person.pronomen} igjen?`,
+                    svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil();
+                }
             }
-        }
-    }],
-    pluss: [{
-        func: function () {
-            person = randomPerson();
+        }]
+    },
+    middels: {
+        minus: [{
+            func: function () {
+                person = randomPerson();
 
-            pengerStart = random(10, 60);
-            penger1 = random(5, 35);
+                pengerStart = random(30, 80);
+                penger1 = random(1, pengerStart / 2);
+                penger2 = random(1, pengerStart - penger1);
+                pengerStart += 2;
 
-            svar = pengerStart + penger1;
-            svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+                ting1 = randomItem();
+                ting2 = randomItem();
 
-            return {
-                text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} får ${penger1} kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
-                svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
-                riktig: svar
+                svar = pengerStart - (penger1 + penger2);
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+
+                return {
+                    text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} kjøper ${ting1} for ${penger1} kr og ${ting2} for ${penger2} kr.<br/>Hvor mange kroner har ${person.pronomen} igjen?`,
+                    svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil();
+                }
             }
-        },
-        svarFunc: function () {
-            if ($("#svarboks1").val() == oppgave.riktig) {
-                riktig();
-            } else {
-                feil();
+        }],
+        pluss: [{
+            func: function () {
+                person = randomPerson();
+
+                pengerStart = random(10, 60);
+                penger1 = random(5, 35);
+
+                svar = pengerStart + penger1;
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+
+                return {
+                    text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} får ${penger1} kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
+                    svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil();
+                }
             }
-        }
-    }, {
-        func: function () {
-            person = randomPerson();
+        }, {
+            func: function () {
+                person = randomPerson();
 
-            penger1 = random(5, 35);
-            penger2 = random(5, 35);
+                penger1 = random(50, 100);
+                penger2 = random(50, 100);
 
-            svar = penger1 + penger2;
-            svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+                svar = penger1 + penger2;
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
-            return {
-                text: `${person.navn} har bursdag.<br/>${cfl(person.pronomen)} får ${penger1} kr i familiebesøket og ${penger2} kr i  klassebesøket.<br/>Hvor mange penger får ${person.pronomen}?`,
-                svar: `${cfl(person.pronomen)} får ${svarboks} kr til bursdagen.`,
-                riktig: svar
+                return {
+                    text: `${person.navn} har bursdag.<br/>${cfl(person.pronomen)} får ${penger1} kr i familiebesøket og ${penger2} kr i  klassebesøket.<br/>Hvor mange penger får ${person.pronomen}?`,
+                    svar: `${cfl(person.pronomen)} får ${svarboks} kr til bursdagen.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil();
+                }
             }
-        },
-        svarFunc: function () {
-            if ($("#svarboks1").val() == oppgave.riktig) {
-                riktig();
-            } else {
-                feil();
-            }
-        }
-    }],
-    ganging: [{
-        func: function () {
-            person = randomPerson();
+        }],
+        ganging: [{
+            func: function () {
+                person = randomPerson();
 
-            penger1 = random(1, 10);
-            personer1 = random(2, 10);
+                penger1 = random(1, 10) * 10;
+                personer1 = random(2, 10);
 
-            svar = penger1 * personer1;
-            svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+                svar = penger1 * personer1;
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
 
-            return {
-                text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1} kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
-                svar: `${cfl(person.pronomen)} gir ${svarboks} kr.`,
-                riktig: svar
+                return {
+                    text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1} kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
+                    svar: `${cfl(person.pronomen)} gir ${svarboks} kr.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil()
+                }
             }
-        },
-        svarFunc: function () {
-            if ($("#svarboks1").val() == oppgave.riktig) {
-                riktig();
-            } else {
-                feil()
+        }],
+        // finnDenUkjentePluss: [],
+        // finnDenUkjenteMinus: [],
+        // finnDenUkjenteGanging: [],
+        // klokke: [],
+        // tid: [],
+        // fart: [],
+        // lengde: [],
+        // volum: [],
+        // areal: [],
+        // overflate: [],
+        // omkrets: []
+    },
+    vanskelig: {
+        ganging: [{
+            func: function () {
+                person = randomPerson();
+
+                penger1 = random(1, 20);
+                personer1 = random(2, 10);
+
+                svar = penger1 * personer1;
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+
+                return {
+                    text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1} kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
+                    svar: `${cfl(person.pronomen)} gir ${svarboks} kr.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil()
+                }
             }
-        }
-    }],
-    // finnDenUkjentePluss: [],
-    // finnDenUkjenteMinus: [],
-    // finnDenUkjenteGanging: [],
-    // klokke: [],
-    // tid: [],
-    // fart: [],
-    // lengde: [],
-    // volum: [],
-    // areal: [],
-    // overflate: [],
-    // omkrets: []
+        }]
+    },
+    vanskeligere: {
+        ganging: [{
+            func: function () {
+                person = randomPerson();
+
+                penger1 = random(0, 20);
+                personer1 = random(2, 10);
+
+                svar = penger1 * personer1;
+                svarboks = '<input type="number" class="svarboks w2l" title="Svar" id="svarboks1" tabindex="0" />';
+
+                return {
+                    text: `${person.navn} skal gi penger til ${personer1} personer.<br/>Alle får ${penger1} kr hver.<br/>Hvor mange penger gir ${person.pronomen}?`,
+                    svar: `${cfl(person.pronomen)} gir ${svarboks} kr.`,
+                    riktig: svar
+                }
+            },
+            svarFunc: function () {
+                if ($("#svarboks1").val() == oppgave.riktig) {
+                    riktig();
+                } else {
+                    feil()
+                }
+            }
+        }]
+    }
 }
 
 var oppgave, oppgaveSvar;
 
 function velgOppgave() {
-    let oppgaveObj = randomFromArr(randomFromObj(tekstoppgaver));
+    let oppgaveObj = randomFromArr(randomFromObj(tekstoppgaver.lettere));
     oppgave = oppgaveObj.func();
     oppgaveSvar = oppgaveObj.svarFunc;
 
@@ -294,17 +406,49 @@ const animateCSS = (element, animation, prefix = 'animate__') => {
     });
 }
 
-// $(".openBtn").click(function () {
-//     $(".openBtn span").toggleClass("rot180");
-// });
-
-$(".openSelect").change(function () {
-    typerOppgave = $(this).val();
-    // console.log(typerOppgave);
+$(".openBtn").click(function () {
+    $(".openBtn").toggleClass("rot180");
+    $(".openDiv").toggleClass("showOpenDiv");
+    animateCSS(".openDiv", "backInDown");
 });
 
 $(function () {
     animateCSS(".appdiv", "zoomIn");
-    animateCSS(".openSelect", "backInDown");
     animateCSS("#svarknapp", "fadeInRight");
+    animateCSS(".openBtn", "backInDown");
+});
+
+function optgroup(txt = "add text") {
+    return `<li class="group-title">${txt}</li>`;
+}
+
+function option(txt = "add text", val = "add value") {
+    return `<li data-text="${txt}" data-value="${val}"><a>${txt}</a></li>`;
+}
+
+var optList = ".option-list";
+
+var ids = 10;
+
+$(function () {
+    let oppgArr = Object.keys(tekstoppgaver);
+    console.log(oppgArr);
+
+    for (var i = 0; i < oppgArr.length; i++) {
+        let ee = tekstoppgaver;
+        console.log("ee", ee);
+        let eee = ee[oppgArr[i]];
+        console.log("eee", eee);
+        let eeee = Object.keys(eee);
+        console.log("eeee", eeee);
+        let oppgArray = eeee;
+        // console.log(tekstoppgaver[oppgArr[i]]);
+        console.log("oppgArray", oppgArray);
+        for (var o = 0; o < oppgArray.length; o++) {
+            $(`.${oppgArr[i]}`).append(`<li><input type="checkbox" id="${ids}" value="${oppgArray[o]}"><label for="${ids}">${oppgArray[o]}</label></li>`);
+            console.log(oppgArray[o]);
+            ids++;
+        }
+        console.log(oppgArr[i]);
+    }
 });
