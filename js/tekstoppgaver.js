@@ -57,6 +57,11 @@ var vanskelighetsgrader = [];
 
 var oppgObj = {};
 
+var vanskArray = [],
+    oppgObj = {};
+
+var oppgArr;
+
 function random(from, to) {
     let from1 = to - from;
     return Math.floor(Math.random() * from1) + from;
@@ -96,7 +101,7 @@ var tekstoppgaver = {
 
                 return {
                     text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} får ${penger1} kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
-                    svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
+                    svar: `${cfl(person.pronomen)} har ${svarboks} kr.`,
                     riktig: svar
                 }
             },
@@ -179,7 +184,7 @@ var tekstoppgaver = {
 
                 return {
                     text: `${person.navn} har ${pengerStart} kr.<br/>${cfl(person.pronomen)} får ${penger1} kr til bursdagen.<br/>Hvor mange kroner har ${person.pronomen}?`,
-                    svar: `${cfl(person.pronomen)} har ${svarboks} kr igjen.`,
+                    svar: `${cfl(person.pronomen)} har ${svarboks} kr.`,
                     riktig: svar
                 }
             },
@@ -307,38 +312,49 @@ var tekstoppgaver = {
 var oppgave, oppgaveSvar;
 
 function velgOppgave() {
-    let oppgaveObj = randomFromArr(randomFromObj(tekstoppgaver.lettere));
-    oppgave = oppgaveObj.func();
-    oppgaveSvar = oppgaveObj.svarFunc;
+    if ($(".checked")[0] || $(".checked").length) {
+        $("#svarknapp").removeClass("hide");
+        // let oppgaveObj = randomFromArr(randomFromObj(tekstoppgaver.middels));
+        let randFromOppgArr = randomFromArr(vanskArray);
+        let oppgaveObj = randomFromArr(tekstoppgaver[randFromOppgArr][randomFromArr(oppgObj[randFromOppgArr])]);
 
-    let oppgavTxt = oppgave["text"].split("<br/>");
-    let oppgavArr = [];
-    for (var i = 0; i < oppgavTxt.length; i++) {
-        oppgavArr.push('<span class="oppgaveTxt">' + oppgavTxt[i] + '</span>');
+        oppgave = oppgaveObj.func();
+        oppgaveSvar = oppgaveObj.svarFunc;
+
+        let oppgavTxt = oppgave["text"].split("<br/>");
+        let oppgavArr = [];
+
+        for (var i = 0; i < oppgavTxt.length; i++) {
+            oppgavArr.push('<span class="oppgaveTxt">' + oppgavTxt[i] + '</span>');
+        }
+
+        let oppgavText = oppgavArr.join("");
+        oppgave["text"] = oppgavText;
+
+        //--\\
+
+        let oppgavSvar = oppgave["svar"].split("<br/>");
+        let oppgavSvarArr = [];
+        for (var i = 0; i < oppgavSvar.length; i++) {
+            oppgavSvarArr.push('<span class="oppgaveSvar">' + oppgavSvar[i] + '</span>');
+        }
+
+        let oppgavSvaret = oppgavSvarArr.join("");
+        oppgave["svar"] = oppgavSvaret;
+
+        $(".text").html(oppgave.text);
+        $(".svar").html(oppgave.svar);
+        // resizeText();
+
+        $("#svarboks1").focus();
+    } else {
+        // alert("Du må velge minst en oppgavetype!");
+        $(".text").html('<span class="oppgaveTxt">Du må velge minst en oppgavetype!</span>');
+        $(".svar").html('');
+        $("#svarknapp").addClass("hide");
+        return;
     }
-
-    let oppgavText = oppgavArr.join("");
-    oppgave["text"] = oppgavText;
-
-    //--\\
-
-    let oppgavSvar = oppgave["svar"].split("<br/>");
-    let oppgavSvarArr = [];
-    for (var i = 0; i < oppgavSvar.length; i++) {
-        oppgavSvarArr.push('<span class="oppgaveSvar">' + oppgavSvar[i] + '</span>');
-    }
-
-    let oppgavSvaret = oppgavSvarArr.join("");
-    oppgave["svar"] = oppgavSvaret;
-
-    $(".text").html(oppgave.text);
-    $(".svar").html(oppgave.svar);
-    // resizeText();
 }
-
-velgOppgave();
-// console.log(oppgave);
-// console.log(oppgaveSvar);
 
 $("#svarknapp").click(function () {
     oppgaveSvar();
@@ -428,27 +444,48 @@ function option(txt = "add text", val = "add value") {
 
 var optList = ".option-list";
 
-var ids = 10;
-
 $(function () {
-    let oppgArr = Object.keys(tekstoppgaver);
-    console.log(oppgArr);
+    oppgArr = Object.keys(tekstoppgaver);
+    // console.log(oppgArr);
 
     for (var i = 0; i < oppgArr.length; i++) {
         let ee = tekstoppgaver;
-        console.log("ee", ee);
+        // console.log("ee", ee);
         let eee = ee[oppgArr[i]];
-        console.log("eee", eee);
+        // console.log("eee", eee);
         let eeee = Object.keys(eee);
-        console.log("eeee", eeee);
+        // console.log("eeee", eeee);
         let oppgArray = eeee;
         // console.log(tekstoppgaver[oppgArr[i]]);
-        console.log("oppgArray", oppgArray);
+        // console.log("oppgArray", oppgArray);
         for (var o = 0; o < oppgArray.length; o++) {
-            $(`.${oppgArr[i]}`).append(`<li><input type="checkbox" id="${ids}" value="${oppgArray[o]}"><label for="${ids}">${oppgArray[o]}</label></li>`);
-            console.log(oppgArray[o]);
-            ids++;
+            //$(`.${oppgArr[i]}`).append(`<li class="li"><input class="cbox" type="checkbox" id="${ids}" value="${oppgArr[i]}_${oppgArray[o]}"><label class="label" for="${ids}">${oppgArray[o]}</label></li>`);
+            $(`.${oppgArr[i]}`).append(`<label class="tgl"><input type="checkbox" class="cbox checked" checked id="${oppgArr[i]}_${oppgArray[o]}" onclick="$(this).toggleClass('checked');clickCbox()" /><span>${cfl(oppgArray[o])}</span></label>`)
+            // console.log(oppgArray[o]);
         }
-        console.log(oppgArr[i]);
+        // console.log(oppgArr[i]);
     }
+
+    clickCbox();
 });
+
+function clickCbox() {
+    oppgObj = {};
+    vanskArray = [];
+
+    for (var i = 0; i < oppgArr.length; i++) {
+        oppgObj[oppgArr[i]] = [];
+    }
+
+    $(".cbox").each(function (index) {
+        if ($(".checked").eq(index).attr("id") !== undefined) {
+            let splitTxt = $(".checked").eq(index).attr("id").split("_")
+            // oppgArray.push(splitTxt[1]);
+            oppgObj[splitTxt[0]].push(splitTxt[1]);
+            vanskArray.push(splitTxt[0]);
+        }
+    });
+    console.log("Vanskelighetsgrader:", vanskArray, "Oppgavetyper:", oppgObj);
+
+    velgOppgave();
+}
