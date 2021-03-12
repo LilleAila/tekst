@@ -62,169 +62,6 @@ body {
   transform: scale(1.2) !important;
 }
 
-@-webkit-keyframes shake {
-  0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    -webkit-transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    -webkit-transform: translate(0px, 2px) rotate(0deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    -webkit-transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    -webkit-transform: translate(2px, 1px) rotate(-1deg);
-  }
-  80% {
-    -webkit-transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 2px) rotate(0deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-@-moz-keyframes shake {
-  0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    -webkit-transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    -webkit-transform: translate(0px, 2px) rotate(0deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    -webkit-transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    -webkit-transform: translate(2px, 1px) rotate(-1deg);
-  }
-  80% {
-    -webkit-transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 2px) rotate(0deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-@-o-keyframes shake {
-  0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    -webkit-transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    -webkit-transform: translate(0px, 2px) rotate(0deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    -webkit-transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    -webkit-transform: translate(2px, 1px) rotate(-1deg);
-  }
-  80% {
-    -webkit-transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 2px) rotate(0deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-@keyframes shake {
-  0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
-  }
-  20% {
-    -webkit-transform: translate(-3px, 0px) rotate(1deg);
-  }
-  30% {
-    -webkit-transform: translate(0px, 2px) rotate(0deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    -webkit-transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    -webkit-transform: translate(2px, 1px) rotate(-1deg);
-  }
-  80% {
-    -webkit-transform: translate(-1px, -1px) rotate(1deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 2px) rotate(0deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
-  }
-}
-
-.shake {
-  -webkit-animation-name: shake;
-  -webkit-animation-duration: 0.5s;
-  -webkit-transform-origin: 50% 50%;
-  -webkit-animation-iteration-count: infinite;
-  -moz-animation-name: shake;
-  -moz-animation-duration: 0.5s;
-  -moz-transform-origin: 50% 50%;
-  -moz-animation-iteration-count: infinite;
-  -o-animation-name: shake;
-  -o-animation-duration: 0.5s;
-  -o-transform-origin: 50% 50%;
-  -o-animation-iteration-count: infinite;
-  animation-name: shake;
-  animation-duration: 0.5s;
-  transform-origin: 50% 50%;
-  animation-iteration-count: infinite;
-}
-
 .appdiv {
   position: absolute;
   top: 10vmin;
@@ -330,8 +167,9 @@ body {
     bottom: 0;
     opacity: 0;
   }
+
   to {
-    bottom: 30px;
+    bottom: 3vmin;
     opacity: 1;
   }
 }
@@ -341,6 +179,7 @@ body {
     bottom: 0;
     opacity: 0;
   }
+
   to {
     bottom: 3vmin;
     opacity: 1;
@@ -352,6 +191,7 @@ body {
     bottom: 3vmin;
     opacity: 1;
   }
+
   to {
     bottom: 0;
     opacity: 0;
@@ -363,6 +203,7 @@ body {
     bottom: 3vmin;
     opacity: 1;
   }
+
   to {
     bottom: 0;
     opacity: 0;
@@ -420,13 +261,15 @@ body {
 .openDiv {
   width: 100vmin;
   height: 100vmin;
-  background-color: rgba(38, 70, 83, 0.8);
+  background-color: rgba(38, 70, 83, 0.95);
   position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
   border-radius: 5vmin;
   padding: 3vmin;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .openDiv.showOpenDiv {
@@ -437,81 +280,176 @@ body {
   display: none !important;
 }
 
-.container {
-  max-width: 100%;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 3vmin;
-}
-
-ul.ks-cboxtags {
-  list-style: none;
-  padding: 2vmin;
-}
-ul.ks-cboxtags li {
-  display: inline;
-  margin: 0.3vmin;
-}
-ul.ks-cboxtags li label {
+/** EXAMPLE
+  <label class="tgl">
+    <input type="checkbox" />
+    <span data-on="Text to display when on" data-off="Text to display when off">Text to always display</span>
+  </label>
+**/
+.tgl {
+  position: relative;
+  outline: 0;
   display: inline-block;
-  background-color: rgba(255, 255, 255, 0.9);
-  border: 0.3vmin solid rgba(139, 139, 139, 0.3);
-  color: #adadad;
-  border-radius: 25px;
-  white-space: nowrap;
-  margin: 0.3vmin 0vmin;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-tap-highlight-color: transparent;
-  transition: all 0.2s;
-}
-
-ul.ks-cboxtags li label {
-  padding: 0.4vmin 0.5vmin;
   cursor: pointer;
+  user-select: none;
+  margin: 0.5vmin;
 }
 
-ul.ks-cboxtags li label::before {
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  -webkit-font-smoothing: antialiased;
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  font-size: 3vmin;
-  padding: 0.1vmin 0.4vmin 0.1vmin 0.1vmin;
-  content: "+";
-  transition: transform 0.3s ease-in-out;
+.tgl,
+.tgl * {
+  font-size: 120% !important;
+  font-weight: 550 !important;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
-  content: "✓";
-  transform: rotate(-360deg);
-  transition: transform 0.3s ease-in-out;
+.tgl,
+.tgl:after,
+.tgl:before,
+.tgl *,
+.tgl *:after,
+.tgl *:before,
+.tgl + .tgl-btn {
+  box-sizing: border-box;
 }
 
-ul.ks-cboxtags li input[type="checkbox"]:checked + label {
-  border: 0.1vmin solid #1bdbf8;
-  background-color: #12bbd4;
-  color: #fff;
-  transition: all 0.2s;
+.tgl::selection,
+.tgl:after::selection,
+.tgl:before::selection,
+.tgl *::selection,
+.tgl *:after::selection,
+.tgl *:before::selection,
+.tgl + .tgl-btn::selection {
+  background: none;
 }
 
-ul.ks-cboxtags li input[type="checkbox"] {
-  display: absolute;
+.tgl span {
+  position: relative;
+  display: block;
+  height: 1.8em;
+  line-height: 1.2em;
+  overflow: hidden;
+  /* font-weight: normal; */
+  text-align: center;
+  border-radius: 2em;
+  padding: 0.2em 1em;
+  border: 1px solid #fafafa;
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2), 0 2px 0 rgba(255, 255, 255, 0.7);
+  transition: color 0.3s ease, padding 0.3s ease-in-out,
+    background 0.3s ease-in-out;
 }
-ul.ks-cboxtags li input[type="checkbox"] {
+
+.tgl span:before {
+  position: relative;
+  display: block;
+  line-height: 1.3em;
+  padding: 0 0.2em;
+}
+
+.tgl span:after {
   position: absolute;
-  opacity: 0;
-}
-ul.ks-cboxtags li input[type="checkbox"]:focus + label {
-  border: o.1vmin solid #e9a1ff;
+  display: block;
+  content: "";
+  border-radius: 2em;
+  width: 1.3em;
+  height: 1.3em;
+  margin-left: -1.45em;
+  top: 0.2em;
+  background: #ffffff;
+  transition: left 0.3s cubic-bezier(0.175, 0.885, 0.32, 0.97),
+    background 0.3s ease-in-out;
 }
 
-h1 {
-  font-size: 5vmin !important;
-  font-weight: normal;
+.tgl input[type="checkbox"] {
+  display: none !important;
+}
+
+.tgl input[type="checkbox"]:not(:checked) + span {
+  background: #de474e;
+  color: #ffffff;
+  padding-left: 1.6em;
+  padding-right: 0.4em;
+}
+
+.tgl input[type="checkbox"]:not(:checked) + span:before {
+  content: attr(data-off);
+  color: #ffffff;
+}
+
+.tgl input[type="checkbox"]:not(:checked) + span:after {
+  background: #ffffff;
+  left: 1.6em;
+}
+
+.tgl input[type="checkbox"]:checked + span {
+  background: #86d993;
+  color: #ffffff;
+  padding-left: 0.4em;
+  padding-right: 1.6em;
+}
+
+.tgl input[type="checkbox"]:checked + span:before {
+  content: attr(data-on);
+}
+
+.tgl input[type="checkbox"]:checked + span:after {
+  background: #ffffff;
+  left: 100%;
+}
+
+.tgl input[type="checkbox"]:disabled,
+.tgl input[type="checkbox"]:disabled + span,
+.tgl input[type="checkbox"]:read-only,
+.tgl input[type="checkbox"]:read-only + span {
+  cursor: not-allowed;
+}
+
+.tgl-gray input[type="checkbox"]:not(:checked) + span {
+  background: #e3e3e3;
+  color: #999999;
+}
+
+.tgl-gray input[type="checkbox"]:not(:checked) + span:before {
+  color: #999999;
+}
+
+.tgl-gray input[type="checkbox"]:not(:checked) + span:after {
+  background: #ffffff;
+}
+
+.tgl-inline {
+  display: inline-block !important;
+  vertical-align: top;
+}
+
+.tgl-inline.tgl span {
+  min-width: 50px;
+}
+
+.tgl-inline.tgl span:before {
+  line-height: 1.4em;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+
+.tgl-inline-label {
+  display: inline-block !important;
+  vertical-align: top;
+  line-height: 26px;
+}
+
+body {
+  font-family: "Source Sans Pro", Helvetica Neue, Helvetica, Arial,
+    sans-serifsans !important;
+}
+
+.simple-toggle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 30px;
+  text-align: center;
+  margin: auto;
+}
+
+.hide {
+  display: none !important;
 }
