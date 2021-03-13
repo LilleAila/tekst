@@ -106,7 +106,9 @@ body {
   outline: none;
   outline: none;
   border-radius: 0;
-  padding: 1vmin !important;
+  padding-bottom: 1vmin !important;
+  padding-top: 1vmin !important;
+  padding-left: 0.4vmin !important;
   text-align: center;
 }
 
