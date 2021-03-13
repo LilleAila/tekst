@@ -461,3 +461,7 @@ body {
 .hide {
   display: none !important;
 }
+
+.keypadMetro {
+  width: 100%;
+}
