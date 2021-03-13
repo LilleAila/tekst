@@ -110,6 +110,7 @@ body {
   padding-top: 1vmin !important;
   padding-left: 0.4vmin !important;
   text-align: center;
+  box-sizing: initial;
 }
 
 .w1l {
