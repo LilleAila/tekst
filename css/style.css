@@ -97,22 +97,6 @@ body {
   font-size: 5vmin;
 }
 
-.svarboks {
-  height: 5vmin;
-  font-size: 5vmin;
-  color: rgba(25, 26, 27, 1);
-  background-color: rgba(255, 255, 255, 1);
-  border: none;
-  outline: none;
-  outline: none;
-  border-radius: 0;
-  padding-bottom: 1vmin !important;
-  padding-top: 1vmin !important;
-  padding-left: 0.4vmin !important;
-  text-align: center;
-  box-sizing: initial !important;
-}
-
 .w1l {
   width: 5vmin;
 }
@@ -462,6 +446,31 @@ body {
   display: none !important;
 }
 
-.keypadMetro {
+.keypadMetro input {
   width: 100%;
+  height: 100%;
+  font-size: auto;
+}
+
+.keypadMetro {
+  margin: 0 !important;
+  display: inline-block !important;
+}
+
+.svarboks {
+  height: 5vmin;
+  font-size: 5vmin;
+  color: rgba(25, 26, 27, 1);
+  background-color: rgba(255, 255, 255, 1);
+  border: none;
+  outline: none;
+  outline: none;
+  border-radius: 0;
+  /* padding-bottom: 1vmin !important;
+  padding-top: 1vmin !important;
+  padding-left: 0.4vmin !important; */
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center;
+  box-sizing: initial !important;
 }
