@@ -483,7 +483,7 @@ function velgOppgave() {
         $(".svar").html(oppgave.svar);
         // resizeText();
 
-        if (isMobile.any) {
+        if (isMobile.any || isMobile.phone || isMobile.tablet) {
             $(".svarboks").attr("data-role", "keypad").addClass("keypadMetro");
         }
 
