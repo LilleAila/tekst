@@ -106,7 +106,8 @@ body {
   outline: none;
   outline: none;
   border-radius: 0;
-  padding: initial !important;
+  padding: 1vmin !important;
+  text-align: center;
 }
 
 .w1l {
