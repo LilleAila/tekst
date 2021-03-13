@@ -346,7 +346,9 @@ function velgOppgave() {
         $(".svar").html(oppgave.svar);
         // resizeText();
 
-        $("#svarboks1").focus();
+        if (!$(".openDiv").hasClass("showOpenDiv")) {
+            $("#svarboks1").focus();
+        }
     } else {
         // alert("Du må velge minst en oppgavetype!");
         $(".text").html('<span class="oppgaveTxt">Du må velge minst en oppgavetype!</span>');
@@ -426,6 +428,9 @@ $(".openBtn").click(function () {
     $(".openBtn").toggleClass("rot180");
     $(".openDiv").toggleClass("showOpenDiv");
     animateCSS(".openDiv", "backInDown");
+    if (!$(".openDiv").hasClass("showOpenDiv")) {
+        $("#svarboks1").focus();
+    }
 });
 
 $(function () {
